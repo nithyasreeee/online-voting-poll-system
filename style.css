@@ -1150,6 +1150,18 @@ body.auth-page {
         align-items: stretch;
     }
 
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .account-actions {
+        justify-content: stretch;
+    }
+
+    .account-actions .btn {
+        width: 100%;
+    }
+
     .dashboard-list-head {
         flex-direction: column;
         align-items: flex-start;

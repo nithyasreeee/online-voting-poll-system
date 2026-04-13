@@ -13,11 +13,11 @@
             <nav>
                 <a class="active" aria-current="page" href="home.html">Dashboard</a>
                 <a href="poll.html">Poll Center</a>
+                <a href="poll.html" id="createPollLink" class="hidden nav-cta">Create Poll</a>
                 <div class="nav-user-info">
                     <span id="userRole"></span>
                     <span id="userName"></span>
                 </div>
-                <a href="poll.html" id="createPollLink" class="hidden">Create Poll</a>
                 <button id="logoutBtn" class="btn-danger">Logout</button>
             </nav>
         </div>
@@ -29,8 +29,8 @@
             <div class="container dashboard-panel">
                 <div class="dashboard-header">
                     <div>
-                        <h1 class="section-title">Admin Command Center</h1>
-                        <p class="dashboard-subtitle">Monitor platform activity, review engagement metrics, and manage live polls from one workspace.</p>
+                        <h1 class="section-title">Workspace Overview</h1>
+                        <p class="dashboard-subtitle">Create polls quickly, monitor response activity, and manage live engagement from a clean control center.</p>
                     </div>
                     <a href="poll.html" class="btn btn-primary">Create New Poll</a>
                 </div>
@@ -45,7 +45,7 @@
                         <div class="number" id="adminTotalVotes">0</div>
                     </div>
                     <div class="stat-card success">
-                        <h3>Registered Members</h3>
+                        <h3>Registered Users</h3>
                         <div class="number" id="adminTotalUsers">0</div>
                     </div>
                     <div class="stat-card dark">
@@ -68,7 +68,7 @@
             <div class="container dashboard-panel">
                 <div class="dashboard-header">
                     <div>
-                        <h1 class="section-title">Voting Dashboard</h1>
+                        <h1 class="section-title">Your Polls</h1>
                         <p class="dashboard-subtitle">Choose an open poll, submit your response, and explore results in real time.</p>
                     </div>
                 </div>
