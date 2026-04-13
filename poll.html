@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polls - Online Voting Poll System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="header-brand">Online Voting Poll System</div>
+            <nav>
+                <a href="home.html">Dashboard</a>
+                <button id="logoutBtn" class="btn-danger">Logout</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- CREATE POLL FORM (ADMIN ONLY) -->
+        <section id="createPollSection" class="hidden">
+            <div class="container">
+                <h1 class="section-title">Create a New Poll</h1>
+                <form id="createPollForm">
+                    <div class="form-group">
+                        <label for="pollQuestion">Poll Question *</label>
+                        <input type="text" id="pollQuestion" placeholder="e.g., What is your favorite programming language?" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Poll Options *</label>
+                        <div id="optionsContainer">
+                            <div class="form-group">
+                                <label>Option Type</label>
+                                <select id="optionType">
+                                    <option value="radio">Single Choice (Radio Button)</option>
+                                    <option value="checkbox">Multiple Choice (Checkbox)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="optionInputs">
+                        <div class="option-input-group" style="margin-bottom: 15px;">
+                            <input type="text" class="option-input" placeholder="Option 1" required>
+                        </div>
+                        <div class="option-input-group" style="margin-bottom: 15px;">
+                            <input type="text" class="option-input" placeholder="Option 2" required>
+                        </div>
+                    </div>
+
+                    <button type="button" id="addOptionBtn" class="btn btn-secondary" style="margin-bottom: 20px;">+ Add More Options</button>
+
+                    <button type="submit" class="btn btn-primary">Create Poll</button>
+                    <a href="home.html" class="btn" style="background-color: #95a5a6; color: white;">Cancel</a>
+                </form>
+            </div>
+        </section>
+
+        <!-- VOTE ON POLL (USER) -->
+        <section id="votePollSection" class="hidden">
+            <div class="container">
+                <h1 class="section-title" id="votePollTitle">Poll Title</h1>
+                <form id="votePollForm">
+                    <div id="voteOptionsContainer" class="options-container"></div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Vote</button>
+                    <a href="home.html" class="btn" style="background-color: #95a5a6; color: white; width: 100%; margin-top: 10px;">Back to Polls</a>
+                </form>
+            </div>
+        </section>
+
+        <!-- VOTE ALREADY SUBMITTED -->
+        <section id="alreadyVotedSection" class="hidden">
+            <div class="container text-center">
+                <h1 class="section-title">Already Voted</h1>
+                <p class="sub-title">You have already voted on this poll</p>
+                <p style="margin-bottom: 30px;">Click below to view the results</p>
+                <a href="#" id="viewResultsLink" class="btn btn-primary">View Results</a>
+                <a href="home.html" class="btn" style="background-color: #95a5a6; color: white;">Back to Polls</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Online Voting Poll System. All rights reserved.</p>
+    </footer>
+
+    <script src="js/storage.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/poll.js"></script>
+</body>
+</html>

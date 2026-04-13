@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="admin">
+  <header class="site-header">
+    <div class="header-wrap">
+      <p class="brand">Online Voting Poll System</p>
+      <nav class="top-nav">
+        <a href="home.html">Polls</a>
+        <a class="active" aria-current="page" href="admin.html">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <section class="container">
+      <h2>Create Poll</h2>
+      <p class="subtext">Add a question and options, then publish.</p>
+
+      <input type="text" id="question" placeholder="Question">
+      <div id="options"></div>
+      <button id="addOptionBtn">Add Option</button>
+      <button id="createPollBtn">Create</button>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Online Voting Poll System</p>
+  </footer>
+
+  <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

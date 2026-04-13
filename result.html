@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results - Online Voting Poll System</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="header-brand">Online Voting Poll System</div>
+            <nav>
+                <a href="home.html">Dashboard</a>
+                <button id="logoutBtn" class="btn-danger">Logout</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1 class="section-title" id="resultTitle">Poll Results</h1>
+
+            <div class="results-container">
+                <!-- Bar Chart -->
+                <div class="chart-wrapper">
+                    <h3 style="text-align: center; margin-bottom: 20px;">Vote Distribution - Bar Chart</h3>
+                    <canvas id="barChartCanvas"></canvas>
+                </div>
+
+                <!-- Pie Chart -->
+                <div class="chart-wrapper">
+                    <h3 style="text-align: center; margin-bottom: 20px;">Vote Distribution - Pie Chart</h3>
+                    <canvas id="pieChartCanvas"></canvas>
+                </div>
+            </div>
+
+            <!-- Results Table -->
+            <div class="results-list" style="margin-top: 30px;">
+                <h3 style="margin-bottom: 20px;">Detailed Results</h3>
+                <div id="resultDetails"></div>
+            </div>
+
+            <div style="margin-top: 30px; text-align: center;">
+                <a href="home.html" class="btn btn-primary">Back to Polls</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Online Voting Poll System. All rights reserved.</p>
+    </footer>
+
+    <script src="js/storage.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/results.js"></script>
+</body>
+</html>

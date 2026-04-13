@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Voting Poll System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="header-brand">Online Voting Poll System</div>
+            <nav>
+                <a href="index.html">Home</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container auth-container">
+            <div class="auth-toggle">
+                <button class="auth-btn active" data-auth="login">Login</button>
+                <button class="auth-btn" data-auth="signup">Sign Up</button>
+            </div>
+
+            <!-- LOGIN FORM -->
+            <div id="loginForm" class="auth-form active">
+                <h2 class="section-title">Login to Your Account</h2>
+                <form id="formLogin">
+                    <div class="role-selector">
+                        <div class="role-option">
+                            <input type="radio" id="roleUser" name="role" value="user" checked>
+                            <label for="roleUser">👤 User</label>
+                        </div>
+                        <div class="role-option">
+                            <input type="radio" id="roleAdmin" name="role" value="admin">
+                            <label for="roleAdmin">👨‍💼 Admin</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginUsername">Username</label>
+                        <input type="text" id="loginUsername" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            </div>
+
+            <!-- SIGNUP FORM -->
+            <div id="signupForm" class="auth-form">
+                <h2 class="section-title">Create New Account</h2>
+                <form id="formSignup">
+                    <div class="role-selector">
+                        <div class="role-option">
+                            <input type="radio" id="signupRoleUser" name="signupRole" value="user" checked>
+                            <label for="signupRoleUser">👤 User</label>
+                        </div>
+                        <div class="role-option">
+                            <input type="radio" id="signupRoleAdmin" name="signupRole" value="admin">
+                            <label for="signupRoleAdmin">👨‍💼 Admin</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupUsername">Username</label>
+                        <input type="text" id="signupUsername" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <input type="password" id="signupPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupConfirm">Confirm Password</label>
+                        <input type="password" id="signupConfirm" required>
+                    </div>
+                    <div class="form-group hidden" id="adminCodeGroup">
+                        <label for="adminAccessCode">Admin Access Code</label>
+                        <input type="password" id="adminAccessCode" placeholder="Enter admin code">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Online Voting Poll System. All rights reserved.</p>
+    </footer>
+
+    <script src="js/storage.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

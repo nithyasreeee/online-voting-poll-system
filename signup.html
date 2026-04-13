@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Online Voting Poll System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="header-brand">Online Voting Poll System</div>
+            <nav>
+                <a href="index.html">Home</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container auth-container">
+            <h2 class="section-title">Create New Account</h2>
+            <form id="formSignup">
+                <div class="role-selector">
+                    <div class="role-option">
+                        <input type="radio" id="signupRoleUser" name="signupRole" value="user" checked>
+                        <label for="signupRoleUser">👤 User</label>
+                    </div>
+                    <div class="role-option">
+                        <input type="radio" id="signupRoleAdmin" name="signupRole" value="admin">
+                        <label for="signupRoleAdmin">👨‍💼 Admin</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="signupUsername">Username</label>
+                    <input type="text" id="signupUsername" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupConfirm">Confirm Password</label>
+                    <input type="password" id="signupConfirm" required>
+                </div>
+                <div class="form-group hidden" id="adminCodeGroup">
+                    <label for="adminAccessCode">Admin Access Code</label>
+                    <input type="password" id="adminAccessCode" placeholder="Enter admin code">
+                </div>
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+            </form>
+            <p class="text-center margin-top">Already have an account? <a href="login.html">Login</a></p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Online Voting Poll System. All rights reserved.</p>
+    </footer>
+
+    <script src="js/storage.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
