@@ -52,11 +52,10 @@
             if (!container) return;
 
             const newOption = document.createElement('div');
-            newOption.className = 'option-input-group';
-            newOption.style.marginBottom = '15px';
+            newOption.className = 'option-input-group option-input-row';
             newOption.innerHTML = `
                 <input type="text" class="option-input" placeholder="Option ${container.children.length + 1}">
-                <button type="button" class="btn btn-danger btn-small" onclick="this.parentElement.remove()" style="margin-left: 10px;">Remove</button>
+                <button type="button" class="btn btn-danger btn-small remove-option-btn" onclick="this.parentElement.remove()">Remove</button>
             `;
             container.appendChild(newOption);
         });

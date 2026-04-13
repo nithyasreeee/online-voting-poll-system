@@ -6,46 +6,70 @@
     <title>Login - Online Voting Poll System</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="auth-page">
     <header>
         <div class="header-container">
-            <div class="header-brand">Online Voting Poll System</div>
+            <a class="header-brand" href="index.html">Online Voting Poll System</a>
             <nav>
                 <a href="index.html">Home</a>
+                <a class="nav-cta" href="signup.html">Create Account</a>
             </nav>
         </div>
     </header>
 
-    <main>
-        <div class="container auth-container">
-            <h2 class="section-title">Login to Your Account</h2>
-            <form id="formLogin">
-                <div class="role-selector">
-                    <div class="role-option">
-                        <input type="radio" id="roleUser" name="role" value="user" checked>
-                        <label for="roleUser">👤 User</label>
+    <main class="auth-main">
+        <div class="auth-shell">
+            <section class="auth-marketing">
+                <p class="auth-kicker">Election-grade platform</p>
+                <h1>Secure Sign In For Trusted Digital Voting</h1>
+                <p class="auth-lead">Run transparent polls with role-based controls, accurate counting, and instant analytics designed for modern organizations.</p>
+                <ul class="auth-points">
+                    <li>Role-based admin and voter workflows</li>
+                    <li>Tamper-resistant voting records in local storage</li>
+                    <li>Real-time result visualization and charts</li>
+                </ul>
+                <div class="auth-metrics">
+                    <div><strong>99.9%</strong><span>Session Reliability</span></div>
+                    <div><strong>Instant</strong><span>Vote Processing</span></div>
+                    <div><strong>24/7</strong><span>Platform Access</span></div>
+                </div>
+            </section>
+
+            <section class="container auth-container auth-panel">
+                <h2 class="section-title">Welcome Back</h2>
+                <p class="auth-subtitle">Sign in to access your dashboard and continue voting operations.</p>
+
+                <form id="formLogin" class="auth-form-page active">
+                    <div class="role-selector">
+                        <div class="role-option">
+                            <input type="radio" id="roleUser" name="role" value="user" checked>
+                            <label for="roleUser">User Portal</label>
+                        </div>
+                        <div class="role-option">
+                            <input type="radio" id="roleAdmin" name="role" value="admin">
+                            <label for="roleAdmin">Admin Console</label>
+                        </div>
                     </div>
-                    <div class="role-option">
-                        <input type="radio" id="roleAdmin" name="role" value="admin">
-                        <label for="roleAdmin">👨‍💼 Admin</label>
+
+                    <div class="form-group">
+                        <label for="loginUsername">Username</label>
+                        <input type="text" id="loginUsername" placeholder="Enter your username" required>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="loginUsername">Username</label>
-                    <input type="text" id="loginUsername" required>
-                </div>
-                <div class="form-group">
-                    <label for="loginPassword">Password</label>
-                    <input type="password" id="loginPassword" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Login</button>
-            </form>
-            <p class="text-center margin-top">Don't have an account? <a href="index.html">Sign Up</a></p>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary auth-submit">Sign In</button>
+                </form>
+
+                <p class="text-center margin-top auth-switch">No account yet? <a href="signup.html">Create one now</a></p>
+            </section>
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2024 Online Voting Poll System. All rights reserved.</p>
+        <p>&copy; 2026 Online Voting Poll System | Secure, Transparent, Trusted</p>
     </footer>
 
     <script src="js/storage.js"></script>

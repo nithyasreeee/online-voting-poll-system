@@ -43,15 +43,18 @@
         const totalPollsEl = document.getElementById('adminTotalPolls');
         const totalVotesEl = document.getElementById('adminTotalVotes');
         const totalUsersEl = document.getElementById('adminTotalUsers');
+        const activePollsEl = document.getElementById('adminActivePolls');
 
         const allPolls = storage.getPolls();
         const adminPolls = allPolls.filter(p => p.createdBy === currentUser.id);
         const totalVotes = storage.getTotalVotes();
         const totalUsers = storage.getTotalUsers();
+        const activePolls = adminPolls.filter(p => (p.totalVotes || 0) > 0).length;
 
         if (totalPollsEl) totalPollsEl.textContent = adminPolls.length;
         if (totalVotesEl) totalVotesEl.textContent = totalVotes;
         if (totalUsersEl) totalUsersEl.textContent = totalUsers;
+        if (activePollsEl) activePollsEl.textContent = activePolls;
     }
 
     function loadAdminPolls() {
@@ -75,11 +78,11 @@
             <div class="poll-card">
                 <h3>${escapeHtml(poll.question)}</h3>
                 <div class="poll-meta">
-                    <span>Total Votes: <strong class="poll-votes">${poll.totalVotes}</strong></span>
-                    <span>Options: ${poll.options.length}</span>
+                    <span>Responses <strong class="poll-votes">${poll.totalVotes}</strong></span>
+                    <span>${poll.options.length} options</span>
                 </div>
-                <p style="color: #7f8c8d; font-size: 14px; margin: 10px 0;">
-                    Created: ${new Date(poll.createdAt).toLocaleDateString()}
+                <p class="poll-summary">
+                    Published ${new Date(poll.createdAt).toLocaleDateString()} • ${poll.optionType === 'checkbox' ? 'Multiple choice' : 'Single choice'}
                 </p>
                 <div class="poll-actions">
                     <button class="btn btn-primary btn-small" onclick="viewResults(${poll.id})">View Results</button>
@@ -127,11 +130,11 @@
                 <div class="poll-card">
                     <h3>${escapeHtml(poll.question)}</h3>
                     <div class="poll-meta">
-                        <span>Total Votes: <strong class="poll-votes">${poll.totalVotes}</strong></span>
+                        <span>Responses <strong class="poll-votes">${poll.totalVotes}</strong></span>
                         ${voteStatus}
                     </div>
-                    <p style="color: #95a5a6; font-size: 13px; margin: 10px 0;">
-                        Created by: ${poll.createdBy === currentUser.id ? 'You' : 'Other User'} on ${new Date(poll.createdAt).toLocaleDateString()}
+                    <p class="poll-summary">
+                        Published ${new Date(poll.createdAt).toLocaleDateString()} • ${poll.optionType === 'checkbox' ? 'Multiple choice' : 'Single choice'}
                     </p>
                     <div class="poll-actions">
                         <button class="btn btn-primary btn-small" onclick="goToVote(${poll.id})">

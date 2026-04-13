@@ -9,8 +9,10 @@
 <body>
     <header>
         <div class="header-container">
-            <div class="header-brand">Online Voting Poll System</div>
+            <a class="header-brand" href="home.html">Online Voting Poll System</a>
             <nav>
+                <a class="active" aria-current="page" href="home.html">Dashboard</a>
+                <a href="poll.html">Poll Center</a>
                 <div class="nav-user-info">
                     <span id="userRole"></span>
                     <span id="userName"></span>
@@ -24,47 +26,65 @@
     <main>
         <!-- ADMIN DASHBOARD -->
         <section id="adminDashboard" class="hidden">
-            <div class="container">
-                <h1 class="section-title">Admin Dashboard</h1>
-                
+            <div class="container dashboard-panel">
+                <div class="dashboard-header">
+                    <div>
+                        <h1 class="section-title">Admin Command Center</h1>
+                        <p class="dashboard-subtitle">Monitor platform activity, review engagement metrics, and manage live polls from one workspace.</p>
+                    </div>
+                    <a href="poll.html" class="btn btn-primary">Create New Poll</a>
+                </div>
+
                 <div class="stats-grid">
                     <div class="stat-card">
-                        <h3>Total Polls Created</h3>
+                        <h3>Total Polls</h3>
                         <div class="number" id="adminTotalPolls">0</div>
                     </div>
                     <div class="stat-card accent">
-                        <h3>Total Votes Cast</h3>
+                        <h3>Total Responses</h3>
                         <div class="number" id="adminTotalVotes">0</div>
                     </div>
                     <div class="stat-card success">
-                        <h3>Registered Users</h3>
+                        <h3>Registered Members</h3>
                         <div class="number" id="adminTotalUsers">0</div>
+                    </div>
+                    <div class="stat-card dark">
+                        <h3>Active Polls</h3>
+                        <div class="number" id="adminActivePolls">0</div>
                     </div>
                 </div>
 
-                <h2 class="section-title" style="margin-top: 40px;">Manage Polls</h2>
-                <div id="adminPollsList" class="polls-grid"></div>
+                <div class="dashboard-list-head">
+                    <h2 class="section-title">Poll Management</h2>
+                    <p>Review each poll, track participation, and take action when needed.</p>
+                </div>
+
+                <div id="adminPollsList" class="polls-grid dashboard-polls-grid"></div>
             </div>
         </section>
 
         <!-- USER DASHBOARD -->
         <section id="userDashboard" class="hidden">
-            <div class="container">
-                <h1 class="section-title">Welcome! Vote on Polls</h1>
-                <p class="sub-title">Choose a poll below and cast your vote</p>
+            <div class="container dashboard-panel">
+                <div class="dashboard-header">
+                    <div>
+                        <h1 class="section-title">Voting Dashboard</h1>
+                        <p class="dashboard-subtitle">Choose an open poll, submit your response, and explore results in real time.</p>
+                    </div>
+                </div>
 
-                <div id="userPollsList" class="polls-grid"></div>
+                <div id="userPollsList" class="polls-grid dashboard-polls-grid"></div>
 
                 <div id="noPollsMessage" class="no-data hidden">
-                    <h3>No Polls Available</h3>
-                    <p>Check back later for new polls</p>
+                    <h3>No Active Polls Yet</h3>
+                    <p>New polls will appear here as soon as they are published.</p>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Online Voting Poll System. All rights reserved.</p>
+        <p>&copy; 2026 Online Voting Poll System | Secure, Transparent, Trusted</p>
     </footer>
 
     <script src="js/storage.js"></script>

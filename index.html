@@ -6,87 +6,107 @@
     <title>Online Voting Poll System</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="auth-page">
     <header>
         <div class="header-container">
-            <div class="header-brand">Online Voting Poll System</div>
+            <a class="header-brand" href="index.html">Online Voting Poll System</a>
             <nav>
-                <a href="index.html">Home</a>
+                <a class="active" aria-current="page" href="index.html">Home</a>
+                <a href="login.html">Sign In</a>
+                <a class="nav-cta" href="signup.html">Create Account</a>
             </nav>
         </div>
     </header>
 
-    <main>
-        <div class="container auth-container">
-            <div class="auth-toggle">
-                <button class="auth-btn active" data-auth="login">Login</button>
-                <button class="auth-btn" data-auth="signup">Sign Up</button>
-            </div>
+    <main class="auth-main">
+        <div class="auth-shell">
+            <section class="auth-marketing">
+                <p class="auth-kicker">Modern voting experience</p>
+                <h1>Professional Polling Platform For Serious Decisions</h1>
+                <p class="auth-lead">From internal team votes to community-wide polling, manage everything in one secure and easy-to-use workflow.</p>
+                <ul class="auth-points">
+                    <li>Dedicated admin console with poll lifecycle control</li>
+                    <li>Clean voter journey optimized for participation</li>
+                    <li>Insightful visual analytics ready after each vote</li>
+                </ul>
+                <div class="auth-metrics">
+                    <div><strong>500+</strong><span>Votes Processed Daily</span></div>
+                    <div><strong>Role-Safe</strong><span>Access Management</span></div>
+                    <div><strong>Real-time</strong><span>Result Dashboards</span></div>
+                </div>
+            </section>
 
-            <!-- LOGIN FORM -->
-            <div id="loginForm" class="auth-form active">
-                <h2 class="section-title">Login to Your Account</h2>
-                <form id="formLogin">
-                    <div class="role-selector">
-                        <div class="role-option">
-                            <input type="radio" id="roleUser" name="role" value="user" checked>
-                            <label for="roleUser">👤 User</label>
-                        </div>
-                        <div class="role-option">
-                            <input type="radio" id="roleAdmin" name="role" value="admin">
-                            <label for="roleAdmin">👨‍💼 Admin</label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="loginUsername">Username</label>
-                        <input type="text" id="loginUsername" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="loginPassword">Password</label>
-                        <input type="password" id="loginPassword" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Login</button>
-                </form>
-            </div>
+            <section class="container auth-container auth-panel">
+                <div class="auth-toggle">
+                    <button class="auth-btn active" data-auth="login">Sign In</button>
+                    <button class="auth-btn" data-auth="signup">Sign Up</button>
+                </div>
 
-            <!-- SIGNUP FORM -->
-            <div id="signupForm" class="auth-form">
-                <h2 class="section-title">Create New Account</h2>
-                <form id="formSignup">
-                    <div class="role-selector">
-                        <div class="role-option">
-                            <input type="radio" id="signupRoleUser" name="signupRole" value="user" checked>
-                            <label for="signupRoleUser">👤 User</label>
+                <div id="loginForm" class="auth-form active">
+                    <h2 class="section-title">Welcome Back</h2>
+                    <p class="auth-subtitle">Sign in and continue your voting workflow.</p>
+                    <form id="formLogin" class="auth-form-page active">
+                        <div class="role-selector">
+                            <div class="role-option">
+                                <input type="radio" id="roleUser" name="role" value="user" checked>
+                                <label for="roleUser">User Portal</label>
+                            </div>
+                            <div class="role-option">
+                                <input type="radio" id="roleAdmin" name="role" value="admin">
+                                <label for="roleAdmin">Admin Console</label>
+                            </div>
                         </div>
-                        <div class="role-option">
-                            <input type="radio" id="signupRoleAdmin" name="signupRole" value="admin">
-                            <label for="signupRoleAdmin">👨‍💼 Admin</label>
+                        <div class="form-group">
+                            <label for="loginUsername">Username</label>
+                            <input type="text" id="loginUsername" placeholder="Enter your username" required>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="signupUsername">Username</label>
-                        <input type="text" id="signupUsername" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="signupPassword">Password</label>
-                        <input type="password" id="signupPassword" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="signupConfirm">Confirm Password</label>
-                        <input type="password" id="signupConfirm" required>
-                    </div>
-                    <div class="form-group hidden" id="adminCodeGroup">
-                        <label for="adminAccessCode">Admin Access Code</label>
-                        <input type="password" id="adminAccessCode" placeholder="Enter admin code">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Sign Up</button>
-                </form>
-            </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary auth-submit">Sign In</button>
+                    </form>
+                </div>
+
+                <div id="signupForm" class="auth-form">
+                    <h2 class="section-title">Create New Account</h2>
+                    <p class="auth-subtitle">Set up your profile and start polling instantly.</p>
+                    <form id="formSignup" class="auth-form-page active">
+                        <div class="role-selector">
+                            <div class="role-option">
+                                <input type="radio" id="signupRoleUser" name="signupRole" value="user" checked>
+                                <label for="signupRoleUser">User Portal</label>
+                            </div>
+                            <div class="role-option">
+                                <input type="radio" id="signupRoleAdmin" name="signupRole" value="admin">
+                                <label for="signupRoleAdmin">Admin Console</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="signupUsername">Username</label>
+                            <input type="text" id="signupUsername" placeholder="Choose a username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signupPassword">Password</label>
+                            <input type="password" id="signupPassword" placeholder="Create a strong password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signupConfirm">Confirm Password</label>
+                            <input type="password" id="signupConfirm" placeholder="Re-enter your password" required>
+                        </div>
+                        <div class="form-group hidden" id="adminCodeGroup">
+                            <label for="adminAccessCode">Admin Access Code</label>
+                            <input type="password" id="adminAccessCode" placeholder="Enter admin access code">
+                        </div>
+                        <button type="submit" class="btn btn-primary auth-submit">Create Account</button>
+                    </form>
+                </div>
+            </section>
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2024 Online Voting Poll System. All rights reserved.</p>
+        <p>&copy; 2026 Online Voting Poll System | Secure, Transparent, Trusted</p>
     </footer>
 
     <script src="js/storage.js"></script>

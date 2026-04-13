@@ -9,9 +9,10 @@
 <body>
     <header>
         <div class="header-container">
-            <div class="header-brand">Online Voting Poll System</div>
+            <a class="header-brand" href="home.html">Online Voting Poll System</a>
             <nav>
                 <a href="home.html">Dashboard</a>
+                <a class="active" aria-current="page" href="poll.html">Poll Center</a>
                 <button id="logoutBtn" class="btn-danger">Logout</button>
             </nav>
         </div>
@@ -20,8 +21,11 @@
     <main>
         <!-- CREATE POLL FORM (ADMIN ONLY) -->
         <section id="createPollSection" class="hidden">
-            <div class="container">
-                <h1 class="section-title">Create a New Poll</h1>
+            <div class="container poll-page-shell">
+                <div class="poll-page-header">
+                    <h1 class="section-title">Create A New Poll</h1>
+                    <p class="sub-title">Build a clear question, define your response model, and publish with confidence.</p>
+                </div>
                 <form id="createPollForm">
                     <div class="form-group">
                         <label for="pollQuestion">Poll Question *</label>
@@ -34,56 +38,61 @@
                             <div class="form-group">
                                 <label>Option Type</label>
                                 <select id="optionType">
-                                    <option value="radio">Single Choice (Radio Button)</option>
-                                    <option value="checkbox">Multiple Choice (Checkbox)</option>
+                                    <option value="radio">Single Choice</option>
+                                    <option value="checkbox">Multiple Choice</option>
                                 </select>
                             </div>
                         </div>
                     </div>
 
                     <div id="optionInputs">
-                        <div class="option-input-group" style="margin-bottom: 15px;">
+                        <div class="option-input-group option-input-row">
                             <input type="text" class="option-input" placeholder="Option 1" required>
                         </div>
-                        <div class="option-input-group" style="margin-bottom: 15px;">
+                        <div class="option-input-group option-input-row">
                             <input type="text" class="option-input" placeholder="Option 2" required>
                         </div>
                     </div>
 
-                    <button type="button" id="addOptionBtn" class="btn btn-secondary" style="margin-bottom: 20px;">+ Add More Options</button>
+                    <button type="button" id="addOptionBtn" class="btn btn-secondary add-option-btn">+ Add More Options</button>
 
-                    <button type="submit" class="btn btn-primary">Create Poll</button>
-                    <a href="home.html" class="btn" style="background-color: #95a5a6; color: white;">Cancel</a>
+                    <div class="poll-form-actions">
+                        <button type="submit" class="btn btn-primary">Publish Poll</button>
+                        <a href="home.html" class="btn btn-neutral">Cancel</a>
+                    </div>
                 </form>
             </div>
         </section>
 
         <!-- VOTE ON POLL (USER) -->
         <section id="votePollSection" class="hidden">
-            <div class="container">
+            <div class="container poll-page-shell">
                 <h1 class="section-title" id="votePollTitle">Poll Title</h1>
+                <p class="sub-title">Select your preferred option and submit your response.</p>
                 <form id="votePollForm">
                     <div id="voteOptionsContainer" class="options-container"></div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Vote</button>
-                    <a href="home.html" class="btn" style="background-color: #95a5a6; color: white; width: 100%; margin-top: 10px;">Back to Polls</a>
+                    <div class="vote-actions">
+                        <button type="submit" class="btn btn-primary full-width-btn">Submit Vote</button>
+                        <a href="home.html" class="btn btn-neutral full-width-btn">Back to Polls</a>
+                    </div>
                 </form>
             </div>
         </section>
 
         <!-- VOTE ALREADY SUBMITTED -->
         <section id="alreadyVotedSection" class="hidden">
-            <div class="container text-center">
+            <div class="container text-center poll-page-shell">
                 <h1 class="section-title">Already Voted</h1>
-                <p class="sub-title">You have already voted on this poll</p>
-                <p style="margin-bottom: 30px;">Click below to view the results</p>
+                <p class="sub-title">Your response has already been recorded for this poll.</p>
+                <p class="already-voted-note">You can review the latest insights below.</p>
                 <a href="#" id="viewResultsLink" class="btn btn-primary">View Results</a>
-                <a href="home.html" class="btn" style="background-color: #95a5a6; color: white;">Back to Polls</a>
+                <a href="home.html" class="btn btn-neutral">Back to Polls</a>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Online Voting Poll System. All rights reserved.</p>
+        <p>&copy; 2026 Online Voting Poll System | Secure, Transparent, Trusted</p>
     </footer>
 
     <script src="js/storage.js"></script>

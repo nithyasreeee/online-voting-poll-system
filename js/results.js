@@ -61,11 +61,11 @@
             '#e67e22'
         ];
 
-        // Bar Chart
         createBarChart(labels, data, colors);
 
-        // Pie Chart
         createPieChart(labels, data, colors);
+
+        updateResultKpis(poll);
     }
 
     function createBarChart(labels, data, colors) {
@@ -81,13 +81,13 @@
             data: {
                 labels: labels,
                 datasets: [{
-                    label: 'Number of Votes',
+                    label: 'Responses',
                     data: data,
                     backgroundColor: colors.slice(0, data.length),
                     borderColor: colors.slice(0, data.length),
                     borderWidth: 2,
-                    borderRadius: 5,
-                    hoverBackgroundColor: '#2c3e50'
+                    borderRadius: 8,
+                    hoverBackgroundColor: '#1f2f43'
                 }]
             },
             options: {
@@ -95,18 +95,36 @@
                 maintainAspectRatio: true,
                 plugins: {
                     legend: {
-                        display: true,
-                        position: 'top'
+                        display: false
                     },
                     title: {
                         display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.parsed.y + ' responses';
+                            }
+                        }
                     }
                 },
                 scales: {
+                    x: {
+                        ticks: {
+                            color: '#43586f'
+                        },
+                        grid: {
+                            color: 'rgba(67, 88, 111, 0.08)'
+                        }
+                    },
                     y: {
                         beginAtZero: true,
                         ticks: {
-                            stepSize: 1
+                            stepSize: 1,
+                            color: '#43586f'
+                        },
+                        grid: {
+                            color: 'rgba(67, 88, 111, 0.14)'
                         }
                     }
                 }
@@ -145,13 +163,24 @@
                             label: function(context) {
                                 const total = context.dataset.data.reduce((a, b) => a + b, 0);
                                 const percentage = ((context.parsed / total) * 100).toFixed(1);
-                                return context.label + ': ' + context.parsed + ' votes (' + percentage + '%)';
+                                return context.label + ': ' + context.parsed + ' responses (' + percentage + '%)';
                             }
                         }
                     }
                 }
             }
         });
+    }
+
+    function updateResultKpis(poll) {
+        const totalVotes = poll.totalVotes || poll.options.reduce((sum, opt) => sum + opt.votes, 0);
+        const kpiTotalVotes = document.getElementById('kpiTotalVotes');
+        const kpiTotalOptions = document.getElementById('kpiTotalOptions');
+        const kpiResponseModel = document.getElementById('kpiResponseModel');
+
+        if (kpiTotalVotes) kpiTotalVotes.textContent = totalVotes;
+        if (kpiTotalOptions) kpiTotalOptions.textContent = poll.options.length;
+        if (kpiResponseModel) kpiResponseModel.textContent = poll.optionType === 'checkbox' ? 'Multiple Choice' : 'Single Choice';
     }
 
     // ===== DETAILED RESULTS =====
@@ -169,7 +198,7 @@
                 <div class="result-item">
                     <div class="result-label">
                         <span>${escapeHtml(option.text)}</span>
-                        <span>${option.votes} votes (${percentage}%)</span>
+                        <span>${option.votes} responses (${percentage}%)</span>
                     </div>
                     <div class="progress-bar">
                         <div class="progress-fill" style="width: ${barWidth}%">
@@ -188,8 +217,8 @@
         summary.style.borderRadius = '5px';
         summary.style.borderLeft = '4px solid #3498db';
         summary.innerHTML = `
-            <strong>Total Votes Cast:</strong> ${totalVotes}<br>
-            <strong>Response Rate:</strong> ${poll.optionType === 'checkbox' ? 'Multiple selections allowed' : 'Single selection per vote'}
+            <strong>Total Responses:</strong> ${totalVotes}<br>
+            <strong>Response Model:</strong> ${poll.optionType === 'checkbox' ? 'Multiple selections allowed' : 'Single selection per response'}
         `;
         detailsContainer.appendChild(summary);
     }

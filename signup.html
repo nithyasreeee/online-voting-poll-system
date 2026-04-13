@@ -6,54 +6,79 @@
     <title>Sign Up - Online Voting Poll System</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="auth-page">
     <header>
         <div class="header-container">
-            <div class="header-brand">Online Voting Poll System</div>
+            <a class="header-brand" href="index.html">Online Voting Poll System</a>
             <nav>
                 <a href="index.html">Home</a>
+                <a href="login.html">Sign In</a>
+                <a class="nav-cta active" aria-current="page" href="signup.html">Create Account</a>
             </nav>
         </div>
     </header>
 
-    <main>
-        <div class="container auth-container">
-            <h2 class="section-title">Create New Account</h2>
-            <form id="formSignup">
-                <div class="role-selector">
-                    <div class="role-option">
-                        <input type="radio" id="signupRoleUser" name="signupRole" value="user" checked>
-                        <label for="signupRoleUser">👤 User</label>
+    <main class="auth-main">
+        <div class="auth-shell">
+            <section class="auth-marketing">
+                <p class="auth-kicker">Enterprise-ready onboarding</p>
+                <h1>Create Your Voting Workspace In Minutes</h1>
+                <p class="auth-lead">Launch secure polls for teams, classrooms, and communities with a setup flow built for speed and reliability.</p>
+                <ul class="auth-points">
+                    <li>Flexible role setup for users and administrators</li>
+                    <li>Fast poll creation with single or multiple choice</li>
+                    <li>Live participation tracking and visual reports</li>
+                </ul>
+                <div class="auth-metrics">
+                    <div><strong>2 min</strong><span>Average Setup Time</span></div>
+                    <div><strong>100%</strong><span>Client-side Privacy</span></div>
+                    <div><strong>Scalable</strong><span>For Any Team Size</span></div>
+                </div>
+            </section>
+
+            <section class="container auth-container auth-panel">
+                <h2 class="section-title">Create Account</h2>
+                <p class="auth-subtitle">Register your profile and choose your access role.</p>
+
+                <form id="formSignup" class="auth-form-page active">
+                    <div class="role-selector">
+                        <div class="role-option">
+                            <input type="radio" id="signupRoleUser" name="signupRole" value="user" checked>
+                            <label for="signupRoleUser">User Portal</label>
+                        </div>
+                        <div class="role-option">
+                            <input type="radio" id="signupRoleAdmin" name="signupRole" value="admin">
+                            <label for="signupRoleAdmin">Admin Console</label>
+                        </div>
                     </div>
-                    <div class="role-option">
-                        <input type="radio" id="signupRoleAdmin" name="signupRole" value="admin">
-                        <label for="signupRoleAdmin">👨‍💼 Admin</label>
+
+                    <div class="form-group">
+                        <label for="signupUsername">Username</label>
+                        <input type="text" id="signupUsername" placeholder="Choose a username" required>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="signupUsername">Username</label>
-                    <input type="text" id="signupUsername" required>
-                </div>
-                <div class="form-group">
-                    <label for="signupPassword">Password</label>
-                    <input type="password" id="signupPassword" required>
-                </div>
-                <div class="form-group">
-                    <label for="signupConfirm">Confirm Password</label>
-                    <input type="password" id="signupConfirm" required>
-                </div>
-                <div class="form-group hidden" id="adminCodeGroup">
-                    <label for="adminAccessCode">Admin Access Code</label>
-                    <input type="password" id="adminAccessCode" placeholder="Enter admin code">
-                </div>
-                <button type="submit" class="btn btn-primary">Sign Up</button>
-            </form>
-            <p class="text-center margin-top">Already have an account? <a href="login.html">Login</a></p>
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <input type="password" id="signupPassword" placeholder="Create a strong password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupConfirm">Confirm Password</label>
+                        <input type="password" id="signupConfirm" placeholder="Re-enter your password" required>
+                    </div>
+                    <div class="form-group hidden" id="adminCodeGroup">
+                        <label for="adminAccessCode">Admin Access Code</label>
+                        <input type="password" id="adminAccessCode" placeholder="Enter admin access code">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary auth-submit">Create Account</button>
+                </form>
+
+                <p class="text-center margin-top auth-switch">Already registered? <a href="login.html">Sign in</a></p>
+            </section>
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2024 Online Voting Poll System. All rights reserved.</p>
+        <p>&copy; 2026 Online Voting Poll System | Secure, Transparent, Trusted</p>
     </footer>
 
     <script src="js/storage.js"></script>
