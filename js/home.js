@@ -26,10 +26,12 @@
     function showAdminDashboard() {
         const adminDashboard = document.getElementById('adminDashboard');
         const userDashboard = document.getElementById('userDashboard');
+        const pollCenterLink = document.getElementById('pollCenterLink');
         const createPollLink = document.getElementById('createPollLink');
 
         if (adminDashboard) adminDashboard.classList.remove('hidden');
         if (userDashboard) userDashboard.classList.add('hidden');
+        if (pollCenterLink) pollCenterLink.classList.add('hidden');
         if (createPollLink) createPollLink.classList.remove('hidden');
 
         // Load statistics
@@ -96,10 +98,12 @@
     function showUserDashboard() {
         const adminDashboard = document.getElementById('adminDashboard');
         const userDashboard = document.getElementById('userDashboard');
+        const pollCenterLink = document.getElementById('pollCenterLink');
         const createPollLink = document.getElementById('createPollLink');
 
         if (adminDashboard) adminDashboard.classList.add('hidden');
         if (userDashboard) userDashboard.classList.remove('hidden');
+        if (pollCenterLink) pollCenterLink.classList.remove('hidden');
         if (createPollLink) createPollLink.classList.add('hidden');
 
         // Load user polls list

@@ -118,6 +118,30 @@ nav a::after,
     border-radius: 2px;
 }
 
+nav a.no-nav-underline::after,
+.top-nav a.no-nav-underline::after {
+    display: none;
+}
+
+body.dashboard-page nav a::after,
+body.dashboard-page .top-nav a::after {
+    display: none;
+}
+
+body.dashboard-page nav a,
+body.dashboard-page nav button,
+body.dashboard-page .top-nav a,
+body.dashboard-page .top-nav button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+body.dashboard-page nav a:focus,
+body.dashboard-page nav button:focus,
+body.dashboard-page .top-nav a:focus,
+body.dashboard-page .top-nav button:focus {
+    outline: none;
+}
+
 nav a:hover,
 nav button:hover,
 .top-nav a:hover,

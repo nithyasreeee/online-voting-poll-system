@@ -18,20 +18,9 @@
 
     // ===== PAGE INITIALIZATION =====
     document.addEventListener('DOMContentLoaded', function() {
-        if (!pollIdFromUrl) {
-            showAlert('danger', 'Poll not found');
-            setTimeout(() => {
-                window.location.href = 'home.html';
-            }, 1500);
-            return;
-        }
-
-        const poll = storage.getPollById(pollIdFromUrl);
+        const poll = resolvePollForResults();
         if (!poll) {
-            showAlert('danger', 'Poll not found');
-            setTimeout(() => {
-                window.location.href = 'home.html';
-            }, 1500);
+            renderNoResultsState();
             return;
         }
 
@@ -45,6 +34,35 @@
         renderCharts(poll);
         renderDetailedResults(poll);
     });
+
+    function resolvePollForResults() {
+        let poll = null;
+
+        if (pollIdFromUrl) {
+            poll = storage.getPollById(pollIdFromUrl);
+            if (poll) {
+                return poll;
+            }
+        }
+
+        // Fallback for direct navigation to result.html without pollId.
+        const allPolls = storage.getPolls();
+        if (!allPolls.length) {
+            showAlert('info', 'No polls available yet. Create or vote in a poll to view results.');
+            return null;
+        }
+
+        const sortedPolls = allPolls.slice().sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        poll = sortedPolls[0];
+        pollIdFromUrl = poll.id;
+
+        const url = new URL(window.location.href);
+        url.searchParams.set('pollId', String(poll.id));
+        window.history.replaceState({}, '', url.toString());
+
+        showAlert('info', 'Showing the latest poll results.');
+        return poll;
+    }
 
     // ===== RENDER CHARTS =====
     function renderCharts(poll) {
@@ -221,6 +239,35 @@
             <strong>Response Model:</strong> ${poll.optionType === 'checkbox' ? 'Multiple selections allowed' : 'Single selection per response'}
         `;
         detailsContainer.appendChild(summary);
+    }
+
+    function renderNoResultsState() {
+        const titleEl = document.getElementById('resultTitle');
+        const kpiTotalVotes = document.getElementById('kpiTotalVotes');
+        const kpiTotalOptions = document.getElementById('kpiTotalOptions');
+        const kpiResponseModel = document.getElementById('kpiResponseModel');
+        const resultsContainer = document.querySelector('.results-container');
+        const detailsContainer = document.getElementById('resultDetails');
+
+        if (titleEl) {
+            titleEl.textContent = 'Poll Insights';
+        }
+        if (kpiTotalVotes) kpiTotalVotes.textContent = '0';
+        if (kpiTotalOptions) kpiTotalOptions.textContent = '0';
+        if (kpiResponseModel) kpiResponseModel.textContent = 'N/A';
+
+        if (resultsContainer) {
+            resultsContainer.classList.add('hidden');
+        }
+
+        if (detailsContainer) {
+            detailsContainer.innerHTML = `
+                <div class="no-data">
+                    <h3>No result data to display</h3>
+                    <p>Create a poll or submit a vote, then open the Results page again.</p>
+                </div>
+            `;
+        }
     }
 
     // ===== HELPER FUNCTIONS =====
